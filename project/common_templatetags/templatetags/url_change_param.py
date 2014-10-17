@@ -6,12 +6,21 @@ register = template.Library()
 
 
 class UrlChangeParamNode(template.Node):
+    """
+    Node Class for the url change param
+    """
     def __init__(self, param_name, param_value):
+        """
+        getting variables to node
+        """
         self._param_name = param_name
         self._param_value = template.Variable(param_value)
         self._request = template.Variable('request')
 
     def render(self, context):
+        """
+        rendering method for the node
+        """
         param_name = self._param_name
         param_value = self._param_value.resolve(context)
         request = self._request.resolve(context)
@@ -28,6 +37,9 @@ class UrlChangeParamNode(template.Node):
 
 @register.tag(name='url_change_param')
 def do_url_change_param(parser, token):
+    """
+    function template tags
+    """
     try:
         tag_name, param_name, param_value = token.split_contents()
     except ValueError:

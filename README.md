@@ -3,6 +3,8 @@ django-common-templatetags
 
 Common template tags missing in Django project
 
+[Documentation](https://pythonhosted.org/django-common-templatetags/)
+
 ```
        .,,.
      ,;;*;;;;,
